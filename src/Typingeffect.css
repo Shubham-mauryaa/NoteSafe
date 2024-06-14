@@ -1,0 +1,9 @@
+.typing-text {
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Baloo 2';
+    height: 10rem;
+    padding-top: 2rem;
+    margin-top: 3rem;
+}

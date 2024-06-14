@@ -2,12 +2,19 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import contextvalue from "../context/notes/NoteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
+import { useNavigate, Link } from 'react-router-dom';
 
-const Notes = () => {
+const Notes = (props) => {
   const context = useContext(contextvalue);
+  let navigate = useNavigate();
   const { notes, getnote, editnote } = context;
   useEffect(() => {
-    getnote()
+    if (localStorage.getItem('token')) {
+      getnote()
+    }
+    else {
+      navigate("/login")
+    }
   }, [])
 
   const [note, setNote] = useState({ id: "", edittitle: "", editdescription: "", edittag: "" })
@@ -23,6 +30,7 @@ const Notes = () => {
     // console.log("updateing the note",note);
     editnote(note.id, note.edittitle, note.editdescription, note.edittag);
     refClose.current.click();
+    props.showAlert("note updated", "success")
   }
 
   const onChange = (e) => {
@@ -31,14 +39,14 @@ const Notes = () => {
 
   return (
     <>
-      <AddNote />
+      <AddNote showAlert={props.showAlert} />
       {/* <!-- Button trigger modal --> */}
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
 
       {/* <!-- Modal --> */}
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -71,15 +79,31 @@ const Notes = () => {
         </div>
       </div>
 
-      <div className="row my-4">
+      <div className="notesclass" >
         <h1>Your Notes</h1>
         <div className="container">
           {notes.length === 0 && "No note to display"}
         </div>
-        {notes.map((notes) => {
-          return <Noteitem key={notes._id} updateNote={updateNote} note={notes} />;
-        })}
+        <div className="allnotes">
+          {notes.map((notes) => {
+            return <Noteitem key={notes._id} updateNote={updateNote} showAlert={props.showAlert} note={notes} />;
+          })}
+        </div>
       </div>
+
+      <footer>
+        <div className="footer-content">
+          <span className="footer-text">Created by @ Shubham Maurya</span>
+          <div className="social-icons">
+            <Link to="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-instagram"></i>
+            </Link>
+            <Link to="https://github.com/Shubham-mauryaa" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-github"></i>
+            </Link>
+          </div>
+        </div>
+      </footer>
     </>
   )
 }

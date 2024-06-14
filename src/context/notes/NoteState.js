@@ -16,7 +16,7 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1Y2IwMWJmNTVhZGZmZDg5NWY5ZWYxIn0sImlhdCI6MTcxNzM1NDY2MX0.bsAiQJyVqAhKXY7kyqMUcSfAX6RCB4tthcGEvNd3fPs"
+        "auth-token": localStorage.getItem('token')
       }
     });
     const json = await response.json();
@@ -33,7 +33,7 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1Y2IwMWJmNTVhZGZmZDg5NWY5ZWYxIn0sImlhdCI6MTcxNzM1NDY2MX0.bsAiQJyVqAhKXY7kyqMUcSfAX6RCB4tthcGEvNd3fPs"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, tag })
     });
@@ -53,13 +53,13 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1Y2IwMWJmNTVhZGZmZDg5NWY5ZWYxIn0sImlhdCI6MTcxNzM1NDY2MX0.bsAiQJyVqAhKXY7kyqMUcSfAX6RCB4tthcGEvNd3fPs"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, tag })
 
     });
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
 
     let newnote = JSON.parse(JSON.stringify(notes))
     // logic to edit note
@@ -85,15 +85,15 @@ const NoteState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY1Y2IwMWJmNTVhZGZmZDg5NWY5ZWYxIn0sImlhdCI6MTcxNzM1NDY2MX0.bsAiQJyVqAhKXY7kyqMUcSfAX6RCB4tthcGEvNd3fPs"
+        "auth-token": localStorage.getItem('token')
       }
 
     });
 
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
 
-    // console.log("deleting note with id" + id)
+    // console.log("deleting note with id" + id)'
     const newnotes = notes.filter((note) => { return note._id !== id })
     setNotes(newnotes);
   }
