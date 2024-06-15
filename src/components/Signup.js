@@ -21,12 +21,12 @@ const Signup = (props) => {
     console.log(json)
     if (json.success) {
       //save the authtoken and redirect
-      localStorage.setItem('token', json.authtoken)
-      navigate('/')
+      // localStorage.setItem('token', json.authtoken)---made it commentes so my signup and login button show instead of logout after signup
+      navigate('/login')
       props.showAlert("Account created suucessfully", "success")
     }
     else {
-      props.showAlert("Invalid credentias", "danger")
+      props.showAlert("Invalid credentials", "danger")
     }
 
   }
@@ -53,7 +53,7 @@ const Signup = (props) => {
           </div>
           <div className="mb-3 fields">
             <label htmlFor="password" className="form-label">Password</label>
-            <input type="password" className="form-control" id="password" name="password" onChange={onChange} minLength={5} required />
+            <input type="password" className="form-control" id="password" name="password" placeholder='password should be minimum length of 5' onChange={onChange} minLength={5} required />
           </div>
           <div className="mb-3 fields">
             <label htmlFor="cpassword" className="form-label">Confirm Password</label>

@@ -16,15 +16,24 @@ import Userdata from './components/Userdata';
 
 function App() {
   const [alert, setAlert] = useState(null);
-  const showAlert = (message, type) => {
-    setAlert({
-      msg: message,
-      type: type
-    })
+
+  // const showAlert = (message, type) => {
+  //   setAlert({
+  //     msg: message,
+  //     type: type
+  //   })
+  //   setTimeout(() => {
+  //     setAlert(null);
+  //   }, 2000);
+  // }
+
+  const showAlert = (msg, type) => {
+    setAlert({ msg, type });
     setTimeout(() => {
       setAlert(null);
-    }, 2000);
+    }, 3000);
   }
+
   return (
     <>
       <NoteState>

@@ -1,0 +1,46 @@
+/* Alert Styles */
+.custom-alert {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #110808;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    opacity: 0.95;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .custom-alert-success {
+    background: linear-gradient(135deg, #c8e2ce, #4caf50);
+  }
+  
+  .custom-alert-danger {
+    background: linear-gradient(135deg, #e3c5c8, #e53935);
+  }
+  
+  .custom-alert-info {
+    background: linear-gradient(135deg, #b6d2d6, #03a9f4);
+  }
+  
+  .custom-alert-warning {
+    background: linear-gradient(135deg, #e1d7b9, #ff9800);
+  }
+  
+  @media (max-width: 480px) {
+    .custom-alert {
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  }
+  
