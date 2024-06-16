@@ -268,7 +268,7 @@
 /* Footer Styles */
 footer {
   background: linear-gradient(0deg, #da340a, #d4bdac);
-  padding: 20px 0;
+  padding: 5px 0;
   color: white;
   text-align: center;
 }
@@ -359,7 +359,7 @@ footer {
   max-width: 120rem;
   text-align: center;
   color: #333;
-  height: 86.2vh;
+  height: 89.4vh;
 }
 
 .login-container h2 {
