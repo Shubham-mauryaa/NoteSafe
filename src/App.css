@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+
+}
+body{
+  background: linear-gradient(180deg, #dc5625, #b6aa97);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -271,6 +275,9 @@ footer {
   padding: 5px 0;
   color: white;
   text-align: center;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-content {
@@ -422,13 +429,36 @@ footer {
 /* notes css */
 .notesclass{
   display: flex;
-  flex-direction: column;
-  margin:2rem 10rem 0 17rem;
-  height: 37.8vh;
+  flex-direction: column; 
+  height: 42.5vh;
+ 
 }
 .allnotes{
   display: flex;
   flex-direction: row;
-  /* margin:2rem 10rem 0 17rem; */
   
+}
+.notehead{
+  align-items: center;
+  justify-content: center;
+}
+.addnotes{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left:10rem ;
+  margin-right: 0;
+}
+.addnotes form{
+  width: 50%;
+  margin-right: 0;
+  /* display: flex;
+  flex-direction: column; */
+}
+.addnotes form input{
+  width: 70%;
+}
+.addnote-image img{
+  height: 30rem;
+  margin-left: 0;
 }
